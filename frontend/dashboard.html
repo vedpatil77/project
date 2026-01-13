@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Dashboard</h2>
+        <button onclick="goToAdd()">Add Medicine</button>
+        <button onclick="goToSchedule()">View Schedule</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function goToAdd() {
+            window.location.href = "add_medicine.html";
+        }
+        function goToSchedule() {
+            window.location.href = "schedule.html";
+        }
+        function logout() {
+            localStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
