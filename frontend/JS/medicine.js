@@ -1,16 +1,18 @@
 function addMedicine() {
-    var name = document.getElementById("medName").value;
-    var dosage = document.getElementById("dosage").value;
-    var time = document.getElementById("time").value;
+    var data = {
+        name: document.getElementById("medName").value,
+        dosage: document.getElementById("dosage").value,
+        time: document.getElementById("time").value
+    };
 
-    if (name === "" || dosage === "" || time === "") {
-        document.getElementById("msg").innerText = "Fill all fields";
-        return;
-    }
-
-    var medicines = JSON.parse(localStorage.getItem("medicines")) || [];
-    medicines.push({ name, dosage, time });
-    localStorage.setItem("medicines", JSON.stringify(medicines));
-
-    document.getElementById("msg").innerText = "Medicine Added";
+    fetch("http://localhost:5000/addMedicine", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("msg").innerText = data.message;
+    });
 }
+
