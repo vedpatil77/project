@@ -1,14 +1,31 @@
 fetch("http://localhost:5000/getMedicines")
-.then(res => res.json())
+
+.then(response => response.json())
+
 .then(data => {
-    var table = document.getElementById("tableBody");
+
+    const table = document.getElementById("tableBody");
+
+    table.innerHTML = "";
+
     data.forEach(med => {
-        table.innerHTML += `
-            <tr>
-                <td>${med.name}</td>
-                <td>${med.dosage}</td>
-                <td>${med.time}</td>
-            </tr>
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${med.name}</td>
+            <td>${med.dosage}</td>
+            <td>${med.time}</td>
         `;
+
+        table.appendChild(row);
+
     });
+
+})
+
+.catch(error => {
+
+    console.log("Error loading medicines:", error);
+
 });

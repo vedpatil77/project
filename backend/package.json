@@ -1,10 +1,10 @@
 {
-  "name": "backend",
+  "name": "medication-management-backend",
   "version": "1.0.0",
-  "description": "Backend for minor project",
-  "main": "index.js",
+  "description": "Backend for Medication Management System",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

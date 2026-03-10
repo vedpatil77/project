@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Schedule</title>
+    <title>Medicine Schedule</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h2>Medicine Schedule</h2>
-        <table>
+
+<div class="container">
+
+    <h2>Medicine Schedule</h2>
+
+    <table border="1" cellpadding="8">
+
+        <thead>
             <tr>
                 <th>Name</th>
                 <th>Dosage</th>
                 <th>Time</th>
             </tr>
-            <tbody id="tableBody"></tbody>
-        </table>
-        <button onclick="location.href='dashboard.html'">Back</button>
-    </div>
-    <script src="js/reminder.js"></script>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+
+    </table>
+
+    <br>
+
+    <button onclick="location.href='dashboard.html'">Back</button>
+
+</div>
+
+<script>
+
+    // Prevent access without login
+    if(!localStorage.getItem("loggedIn")){
+        window.location.href = "index.html";
+    }
+
+</script>
+
+<script src="js/reminder.js"></script>
+
 </body>
 </html>
 
